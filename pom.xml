@@ -27,14 +27,9 @@
 		<url/>
 	</scm>
 	<properties>
-		<java.version>23</java.version>
+		<java.version>21</java.version>
 	</properties>
 	<dependencies>
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -73,6 +68,8 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
+					<source>21</source>
+					<target>21</target>
 					<annotationProcessorPaths>
 						<path>
 							<groupId>org.projectlombok</groupId>
@@ -85,13 +82,16 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<includes>
-						<include>
-							<groupId>org.springframework.boot</groupId>
-							<artifactId>spring-boot-starter-web</artifactId>
-						</include>
-					</includes>
+					<mainClass>com.SmartHealth.SmartHealth_backend.SmartHealthBackendServiceApplication</mainClass>
 				</configuration>
+<!--				<configuration>-->
+<!--					<includes>-->
+<!--						<excludes>-->
+<!--							<groupId>org.springframework.boot</groupId>-->
+<!--							<artifactId>spring-boot-starter-web</artifactId>-->
+<!--						</excludes>-->
+<!--					</includes>-->
+<!--				</configuration>-->
 			</plugin>
 		</plugins>
 	</build>

@@ -1,11 +1,11 @@
 # Use official OpenJDK image
-FROM openjdk:23-jdk-slim
+FROM openjdk:21-jdk-slim
 
 # Set working directory
 WORKDIR /app
 
 # Copy JAR file to container
-COPY target/*.jar app.jar
+COPY target/SmartHealth-backend-0.0.1-SNAPSHOT.jar app.jar
 
 # Expose port 8080
 EXPOSE 8080
