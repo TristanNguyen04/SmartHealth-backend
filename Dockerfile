@@ -11,4 +11,4 @@ COPY target/*.jar app.jar
 EXPOSE 8080
 
 # Run the application
-CMD ["java", "-jar", "app.jar"]
+CMD ["java", "-Dlogging.level.root=DEBUG", "-jar", "/app/app.jar"]
