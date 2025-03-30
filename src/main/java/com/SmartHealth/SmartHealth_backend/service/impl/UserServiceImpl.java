@@ -7,24 +7,19 @@ import com.SmartHealth.SmartHealth_backend.model.User ;
 import com.SmartHealth.SmartHealth_backend.repository.UserRepository;
 import com.SmartHealth.SmartHealth_backend.service.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
 public class UserServiceImpl implements UserService {
-
     private UserRepository userRepository;
-
-    //public List<User> getAllUsers() {
-    //    return userRepository.findAll();
-    //}
-
-    //public User createUser(User user) {
-    //    return userRepository.save(user);
-    //}
 
     @Override
     public UserDto createUser(UserDto userDto) {
@@ -68,5 +63,11 @@ public class UserServiceImpl implements UserService {
 
         userRepository.deleteById(userId);
     }
+
+    public boolean authenticateUser(String email, String password) {
+        Optional<User> user = userRepository.findByEmail(email);
+        return user.isPresent() && user.get().getPassword().equals(password);
+    }
+
 }
 
