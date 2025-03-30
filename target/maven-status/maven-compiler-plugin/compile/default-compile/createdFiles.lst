@@ -8,6 +8,7 @@ com/SmartHealth/SmartHealth_backend/dto/LoginRequest.class
 com/SmartHealth/SmartHealth_backend/controller/AuthController.class
 com/SmartHealth/SmartHealth_backend/exception/ResourceNotFoundException.class
 com/SmartHealth/SmartHealth_backend/service/UserService.class
+com/SmartHealth/SmartHealth_backend/config/SecurityConfig.class
+com/SmartHealth/SmartHealth_backend/dto/RegistrationRequest.class
 com/SmartHealth/SmartHealth_backend/controller/UserController.class
 com/SmartHealth/SmartHealth_backend/SmartHealthBackendServiceApplication.class
-com/SmartHealth/SmartHealth_backend/util/JwtUtil.class

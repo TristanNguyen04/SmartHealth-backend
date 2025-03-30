@@ -1,8 +1,10 @@
 /Users/tristannguyen/Documents/Projects/oneD/SmartHealth-backend/src/main/java/com/SmartHealth/SmartHealth_backend/SmartHealthBackendServiceApplication.java
+/Users/tristannguyen/Documents/Projects/oneD/SmartHealth-backend/src/main/java/com/SmartHealth/SmartHealth_backend/config/SecurityConfig.java
 /Users/tristannguyen/Documents/Projects/oneD/SmartHealth-backend/src/main/java/com/SmartHealth/SmartHealth_backend/controller/AuthController.java
 /Users/tristannguyen/Documents/Projects/oneD/SmartHealth-backend/src/main/java/com/SmartHealth/SmartHealth_backend/controller/UserController.java
 /Users/tristannguyen/Documents/Projects/oneD/SmartHealth-backend/src/main/java/com/SmartHealth/SmartHealth_backend/dto/AuthResponse.java
 /Users/tristannguyen/Documents/Projects/oneD/SmartHealth-backend/src/main/java/com/SmartHealth/SmartHealth_backend/dto/LoginRequest.java
+/Users/tristannguyen/Documents/Projects/oneD/SmartHealth-backend/src/main/java/com/SmartHealth/SmartHealth_backend/dto/RegistrationRequest.java
 /Users/tristannguyen/Documents/Projects/oneD/SmartHealth-backend/src/main/java/com/SmartHealth/SmartHealth_backend/dto/UserDto.java
 /Users/tristannguyen/Documents/Projects/oneD/SmartHealth-backend/src/main/java/com/SmartHealth/SmartHealth_backend/exception/ResourceNotFoundException.java
 /Users/tristannguyen/Documents/Projects/oneD/SmartHealth-backend/src/main/java/com/SmartHealth/SmartHealth_backend/mapper/UserMapper.java
@@ -10,4 +12,3 @@
 /Users/tristannguyen/Documents/Projects/oneD/SmartHealth-backend/src/main/java/com/SmartHealth/SmartHealth_backend/repository/UserRepository.java
 /Users/tristannguyen/Documents/Projects/oneD/SmartHealth-backend/src/main/java/com/SmartHealth/SmartHealth_backend/service/UserService.java
 /Users/tristannguyen/Documents/Projects/oneD/SmartHealth-backend/src/main/java/com/SmartHealth/SmartHealth_backend/service/impl/UserServiceImpl.java
-/Users/tristannguyen/Documents/Projects/oneD/SmartHealth-backend/src/main/java/com/SmartHealth/SmartHealth_backend/util/JwtUtil.java
