@@ -27,6 +27,6 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "is_google_auth")
+    @Column(name = "is_google_auth", nullable = false)
     private boolean isGoogleAuth;
 }

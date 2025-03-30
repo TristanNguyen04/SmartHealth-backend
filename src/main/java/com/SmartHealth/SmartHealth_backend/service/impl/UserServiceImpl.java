@@ -115,8 +115,10 @@ public class UserServiceImpl implements UserService {
             return UserMapper.mapToUserDto(existingUser.get());
         } else {
             User newUser = new User();
+            newUser.setFullName(email.split("@")[0]);
             newUser.setEmail(email);
             newUser.setPassword(passwordEncoder.encode(generatedPassword));
+            newUser.setPhoneNumber("");
             newUser.setGoogleAuth(true);
 
             User savedUser = userRepository.save(newUser);

@@ -46,7 +46,7 @@ public class AuthController {
             UserDto userDto = userService.authenticateWithGoogle(request.getEmail());
             return ResponseEntity.ok(new AuthResponse("Success", "Google authentication on successful"));
         } catch(Exception e){
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new AuthResponse("Error", e.getMessage()));
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new AuthResponse("Error", e.getMessage()));
         }
     }
 }
