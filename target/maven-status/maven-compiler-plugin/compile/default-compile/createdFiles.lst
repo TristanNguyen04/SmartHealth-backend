@@ -1,5 +1,6 @@
 com/SmartHealth/SmartHealth_backend/service/impl/UserServiceImpl.class
 com/SmartHealth/SmartHealth_backend/model/User.class
+com/SmartHealth/SmartHealth_backend/exception/ResourceNotFoundException.class
 com/SmartHealth/SmartHealth_backend/dto/UserDto.class
 com/SmartHealth/SmartHealth_backend/service/UserService.class
 com/SmartHealth/SmartHealth_backend/controller/UserController.class
