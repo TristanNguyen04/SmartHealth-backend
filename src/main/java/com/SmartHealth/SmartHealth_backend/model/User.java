@@ -2,8 +2,6 @@ package com.SmartHealth.SmartHealth_backend.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
 
 
 @Entity
@@ -28,4 +26,7 @@ public class User {
 
     @Column(name = "password", nullable = false)
     private String password;
+
+    @Column(name = "is_google_auth")
+    private boolean isGoogleAuth;
 }

@@ -1,9 +1,6 @@
 package com.SmartHealth.SmartHealth_backend.controller;
 
-import com.SmartHealth.SmartHealth_backend.dto.AuthResponse;
-import com.SmartHealth.SmartHealth_backend.dto.LoginRequest;
-import com.SmartHealth.SmartHealth_backend.dto.RegistrationRequest;
-import com.SmartHealth.SmartHealth_backend.dto.UserDto;
+import com.SmartHealth.SmartHealth_backend.dto.*;
 import com.SmartHealth.SmartHealth_backend.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -40,6 +37,16 @@ public class AuthController {
             return ResponseEntity.badRequest().body(
                     new AuthResponse("Error", e.getMessage())
             );
+        }
+    }
+
+    @PostMapping("/google-auth")
+    public ResponseEntity<AuthResponse> googleAuth(@RequestBody GoogleAuthRequest request){
+        try {
+            UserDto userDto = userService.authenticateWithGoogle(request.getEmail());
+            return ResponseEntity.ok(new AuthResponse("Success", "Google authentication on successful"));
+        } catch(Exception e){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new AuthResponse("Error", e.getMessage()));
         }
     }
 }

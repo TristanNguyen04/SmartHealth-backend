@@ -10,7 +10,8 @@ public class UserMapper {
                 user.getFullName(),
                 user.getPhoneNumber(),
                 user.getEmail(),
-                user.getPassword()
+                user.getPassword(),
+                user.isGoogleAuth()
         );
     }
 
@@ -20,7 +21,8 @@ public class UserMapper {
                 userDto.getFullName(),
                 userDto.getPhoneNumber(),
                 userDto.getEmail(),
-                userDto.getPassword()
+                userDto.getPassword(),
+                userDto.isGoogleAuth()
         );
     }
 }

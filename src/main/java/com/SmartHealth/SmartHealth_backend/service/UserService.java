@@ -13,4 +13,5 @@ public interface UserService {
     void deleteUser(Long userId);
     boolean authenticateUser(String email, String password);
     UserDto registerUser(RegistrationRequest registrationRequest);
+    UserDto authenticateWithGoogle(String email);
 }

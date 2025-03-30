@@ -9,6 +9,7 @@ import com.SmartHealth.SmartHealth_backend.repository.UserRepository;
 import com.SmartHealth.SmartHealth_backend.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -93,9 +94,34 @@ public class UserServiceImpl implements UserService {
         user.setEmail(request.getEmail());
         user.setPassword(passwordEncoder.encode(request.getPassword())); // Encode password
         user.setPhoneNumber(request.getPhoneNumber());
+        user.setGoogleAuth(false);
 
         User savedUser = userRepository.save(user);
         return UserMapper.mapToUserDto(savedUser);
+    }
+
+    @Override
+    public UserDto authenticateWithGoogle(String email) {
+        // Generate a consistent password based on email
+        String generatedPassword = "GOOGLE_" + email + "_SECURE_HASH";
+
+        Optional<User> existingUser = userRepository.findByEmail(email);
+
+        if (existingUser.isPresent()) {
+            // Existing user - verify they registered via Google
+            if (!existingUser.get().isGoogleAuth()) {
+                throw new BadCredentialsException("Please use regular login for this account");
+            }
+            return UserMapper.mapToUserDto(existingUser.get());
+        } else {
+            User newUser = new User();
+            newUser.setEmail(email);
+            newUser.setPassword(passwordEncoder.encode(generatedPassword));
+            newUser.setGoogleAuth(true);
+
+            User savedUser = userRepository.save(newUser);
+            return UserMapper.mapToUserDto(savedUser);
+        }
     }
 }
 

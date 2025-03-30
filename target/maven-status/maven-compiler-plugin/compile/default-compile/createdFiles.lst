@@ -6,6 +6,7 @@ com/SmartHealth/SmartHealth_backend/mapper/UserMapper.class
 com/SmartHealth/SmartHealth_backend/repository/UserRepository.class
 com/SmartHealth/SmartHealth_backend/dto/LoginRequest.class
 com/SmartHealth/SmartHealth_backend/controller/AuthController.class
+com/SmartHealth/SmartHealth_backend/dto/GoogleAuthRequest.class
 com/SmartHealth/SmartHealth_backend/exception/ResourceNotFoundException.class
 com/SmartHealth/SmartHealth_backend/service/UserService.class
 com/SmartHealth/SmartHealth_backend/config/SecurityConfig.class

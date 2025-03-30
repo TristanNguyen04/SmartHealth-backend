@@ -3,6 +3,7 @@
 /Users/tristannguyen/Documents/Projects/oneD/SmartHealth-backend/src/main/java/com/SmartHealth/SmartHealth_backend/controller/AuthController.java
 /Users/tristannguyen/Documents/Projects/oneD/SmartHealth-backend/src/main/java/com/SmartHealth/SmartHealth_backend/controller/UserController.java
 /Users/tristannguyen/Documents/Projects/oneD/SmartHealth-backend/src/main/java/com/SmartHealth/SmartHealth_backend/dto/AuthResponse.java
+/Users/tristannguyen/Documents/Projects/oneD/SmartHealth-backend/src/main/java/com/SmartHealth/SmartHealth_backend/dto/GoogleAuthRequest.java
 /Users/tristannguyen/Documents/Projects/oneD/SmartHealth-backend/src/main/java/com/SmartHealth/SmartHealth_backend/dto/LoginRequest.java
 /Users/tristannguyen/Documents/Projects/oneD/SmartHealth-backend/src/main/java/com/SmartHealth/SmartHealth_backend/dto/RegistrationRequest.java
 /Users/tristannguyen/Documents/Projects/oneD/SmartHealth-backend/src/main/java/com/SmartHealth/SmartHealth_backend/dto/UserDto.java
