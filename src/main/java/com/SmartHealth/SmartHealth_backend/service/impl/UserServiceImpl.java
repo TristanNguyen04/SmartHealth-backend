@@ -118,7 +118,7 @@ public class UserServiceImpl implements UserService {
             newUser.setFullName(email.split("@")[0]);
             newUser.setEmail(email);
             newUser.setPassword(passwordEncoder.encode(generatedPassword));
-            newUser.setPhoneNumber("");
+            newUser.setPhoneNumber(null);
             newUser.setGoogleAuth(true);
 
             User savedUser = userRepository.save(newUser);
