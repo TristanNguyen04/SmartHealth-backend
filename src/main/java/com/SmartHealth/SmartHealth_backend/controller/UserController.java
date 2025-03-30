@@ -1,25 +1,27 @@
 package com.SmartHealth.SmartHealth_backend.controller;
 
-import com.SmartHealth.SmartHealth_backend.model.User;
+import com.SmartHealth.SmartHealth_backend.dto.UserDto;
 import com.SmartHealth.SmartHealth_backend.service.UserService ;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
+@AllArgsConstructor
 @RestController
 @RequestMapping("/users")
 public class UserController {
-    @Autowired
+
     private UserService userService;
 
-    @GetMapping
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
-    }
-
+//    @GetMapping
+//    public List<User> getAllUsers() {
+//        return userService.getAllUsers();
+//    }
+    // Build Add User REST API
     @PostMapping
-    public User createUser(@RequestBody User user) {
-        return userService.createUser(user);
+    public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) {
+        UserDto savedUser = userService.createUser(userDto);
+        return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
 }
