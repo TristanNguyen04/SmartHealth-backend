@@ -14,10 +14,6 @@ public class UserController {
 
     private UserService userService;
 
-//    @GetMapping
-//    public List<User> getAllUsers() {
-//        return userService.getAllUsers();
-//    }
     // Build Add User REST API
     @PostMapping
     public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) {
