@@ -1,6 +1,7 @@
 com/SmartHealth/SmartHealth_backend/service/impl/UserServiceImpl.class
 com/SmartHealth/SmartHealth_backend/model/User.class
 com/SmartHealth/SmartHealth_backend/dto/UserDto.class
+com/SmartHealth/SmartHealth_backend/service/CustomUserDetailsService.class
 com/SmartHealth/SmartHealth_backend/dto/AuthResponse.class
 com/SmartHealth/SmartHealth_backend/mapper/UserMapper.class
 com/SmartHealth/SmartHealth_backend/repository/UserRepository.class

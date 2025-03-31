@@ -9,9 +9,6 @@ import com.SmartHealth.SmartHealth_backend.repository.UserRepository;
 import com.SmartHealth.SmartHealth_backend.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -135,12 +132,26 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto updateUserMetrics(Long userId, double weight, double height) {
+    public UserDto updateMetrics(Long userId, double weight, double height) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + userId));
 
         user.setWeight(weight);
         user.setHeight(height);
+
+        User updatedUser = userRepository.save(user);
+        return UserMapper.mapToUserDto(updatedUser);
+    }
+
+    @Override
+    public UserDto updateDetails(Long userId, String fullName, String dob, String phoneNumber, String address) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + userId));
+
+        user.setFullName(fullName);
+        user.setDob(dob);
+        user.setPhoneNumber(phoneNumber);
+        user.setAddress(address);
 
         User updatedUser = userRepository.save(user);
         return UserMapper.mapToUserDto(updatedUser);

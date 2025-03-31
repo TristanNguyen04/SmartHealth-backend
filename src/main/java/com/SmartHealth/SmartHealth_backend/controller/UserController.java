@@ -58,7 +58,19 @@ public class UserController {
             @PathVariable("id") Long userId,
             @RequestParam double weight,
             @RequestParam double height) {
-        UserDto updatedUser = userService.updateUserMetrics(userId, weight, height);
+        UserDto updatedUser = userService.updateMetrics(userId, weight, height);
+        return ResponseEntity.ok(updatedUser);
+    }
+
+    // Build Update Details REST API
+    @PatchMapping("/{id}/details")
+    public ResponseEntity<UserDto> updateUserDetails(
+            @PathVariable("id") Long userId,
+            @RequestParam String fullName,
+            @RequestParam String dob,
+            @RequestParam String phoneNumber,
+            @RequestParam String address) {
+        UserDto updatedUser = userService.updateDetails(userId, fullName, dob, phoneNumber, address);
         return ResponseEntity.ok(updatedUser);
     }
 }

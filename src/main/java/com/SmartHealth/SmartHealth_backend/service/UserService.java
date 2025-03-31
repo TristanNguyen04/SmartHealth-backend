@@ -14,5 +14,6 @@ public interface UserService {
     boolean authenticateUser(String email, String password);
     UserDto registerUser(RegistrationRequest registrationRequest);
     UserDto authenticateWithGoogle(String email);
-    UserDto updateUserMetrics(Long userId, double weight, double height);
+    UserDto updateMetrics(Long userId, double weight, double height);
+    UserDto updateDetails(Long userId, String fullName, String dob, String phoneNumber, String address);
 }
