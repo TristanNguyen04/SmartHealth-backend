@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2085cd4f-c7df-48fc-9d44-2e34f8141fdf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SmartHealth-backend-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/SmartHealth-backend-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SmartHealth-backend-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/SmartHealth-backend-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/SmartHealth/SmartHealth_backend/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/SmartHealth/SmartHealth_backend/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/SmartHealth/SmartHealth_backend/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/SmartHealth/SmartHealth_backend/repository/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.SmartHealth.SmartHealth_backend.SmartHealthBackendServiceApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.SmartHealth.SmartHealth_backend.SmartHealthBackendServiceApplicationTests.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.SmartHealth.SmartHealth_backend.SmartHealthBackendServiceApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.SmartHealth.SmartHealth_backend.SmartHealthBackendServiceApplicationTests.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SmartHealth-backend-0.0.1-SNAPSHOT.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +87,7 @@
       <workItem from="1740849077314" duration="2462000" />
       <workItem from="1743306523815" duration="631000" />
       <workItem from="1743315261790" duration="11691000" />
+      <workItem from="1743423642491" duration="201000" />
     </task>
     <servers />
   </component>
