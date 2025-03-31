@@ -63,7 +63,7 @@ public class UserController {
     }
 
     // Build Update Details REST API
-    @PatchMapping("/{id}/details")
+    @PatchMapping("/{id}/profile")
     public ResponseEntity<UserDto> updateUserDetails(
             @PathVariable("id") Long userId,
             @RequestParam String fullName,
