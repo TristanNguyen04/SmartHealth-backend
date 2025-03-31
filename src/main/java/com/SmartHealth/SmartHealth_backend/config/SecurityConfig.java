@@ -20,7 +20,8 @@ public class SecurityConfig {
                         .requestMatchers(
                                 "/api/auth/register",
                                 "/api/auth/login",
-                                "/api/auth/google-auth"
+                                "/api/auth/google-auth",
+                                "/users/**"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )

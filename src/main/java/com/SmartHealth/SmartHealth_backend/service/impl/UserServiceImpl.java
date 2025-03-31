@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto getUserById(Long userId) {
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("User is not existed with given id: " + userId));
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with given id: " + userId));
 
         return UserMapper.mapToUserDto(user);
     }
@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto updateUser(Long userId, UserDto updatedUser) {
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("User is not existed with given id: " + userId));
+                .orElseThrow(() -> new ResourceNotFoundException("User not found given id: " + userId));
         user.setFullName(updatedUser.getFullName());
         user.setEmail(updatedUser.getEmail());
         user.setPhoneNumber(updatedUser.getPhoneNumber());
@@ -65,7 +65,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUser(Long userId) {
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("User is not existed with given id: " + userId));
+                .orElseThrow(() -> new ResourceNotFoundException("User not found given id: " + userId));
 
         userRepository.deleteById(userId);
     }
@@ -94,6 +94,10 @@ public class UserServiceImpl implements UserService {
         user.setEmail(request.getEmail());
         user.setPassword(passwordEncoder.encode(request.getPassword())); // Encode password
         user.setPhoneNumber(request.getPhoneNumber());
+        user.setDob(null);
+        user.setAddress(null);
+        user.setWeight(0);
+        user.setHeight(0);
         user.setGoogleAuth(false);
 
         User savedUser = userRepository.save(user);
@@ -119,11 +123,27 @@ public class UserServiceImpl implements UserService {
             newUser.setEmail(email);
             newUser.setPassword(passwordEncoder.encode(generatedPassword));
             newUser.setPhoneNumber(null);
+            newUser.setDob(null);
+            newUser.setAddress(null);
+            newUser.setWeight(0);
+            newUser.setHeight(0);
             newUser.setGoogleAuth(true);
 
             User savedUser = userRepository.save(newUser);
             return UserMapper.mapToUserDto(savedUser);
         }
+    }
+
+    @Override
+    public UserDto updateUserMetrics(Long userId, double weight, double height) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + userId));
+
+        user.setWeight(weight);
+        user.setHeight(height);
+
+        User updatedUser = userRepository.save(user);
+        return UserMapper.mapToUserDto(updatedUser);
     }
 }
 

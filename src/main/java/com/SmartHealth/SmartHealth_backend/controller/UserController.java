@@ -51,4 +51,14 @@ public class UserController {
         userService.deleteUser(userId);
         return ResponseEntity.ok("User deleted successfully!");
     }
+
+    // Build Update Metrics REST API
+    @PatchMapping("/{id}/metrics")
+    public ResponseEntity<UserDto> updateUserMetrics(
+            @PathVariable("id") Long userId,
+            @RequestParam double weight,
+            @RequestParam double height) {
+        UserDto updatedUser = userService.updateUserMetrics(userId, weight, height);
+        return ResponseEntity.ok(updatedUser);
+    }
 }

@@ -1,5 +1,6 @@
 package com.SmartHealth.SmartHealth_backend.dto;
 
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,5 +16,9 @@ public class UserDto {
     private String phoneNumber;
     private String email;
     private String password;
+    private String dob;
+    private String address;
+    private double weight;
+    private double height;
     private boolean isGoogleAuth;
 }
