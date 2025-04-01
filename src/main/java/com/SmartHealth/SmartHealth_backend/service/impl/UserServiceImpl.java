@@ -7,6 +7,7 @@ import com.SmartHealth.SmartHealth_backend.mapper.UserMapper;
 import com.SmartHealth.SmartHealth_backend.model.User ;
 import com.SmartHealth.SmartHealth_backend.repository.UserRepository;
 import com.SmartHealth.SmartHealth_backend.service.UserService;
+import jakarta.persistence.TupleElement;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -68,7 +69,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean authenticateUser(String email, String password) {
+    public List<Object> authenticateUser(String email, String password) {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
@@ -76,7 +77,8 @@ public class UserServiceImpl implements UserService {
             throw new BadCredentialsException("Invalid password");
         }
 
-        return true;
+        UserDto userDto = UserMapper.mapToUserDto(user);
+        return List.of(userDto.getId(), true);
     }
 
     @Override

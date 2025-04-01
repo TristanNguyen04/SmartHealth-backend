@@ -11,7 +11,7 @@ public interface UserService {
     List<UserDto> getAllUsers();
     UserDto updateUser(Long userId, UserDto updatedUser);
     void deleteUser(Long userId);
-    boolean authenticateUser(String email, String password);
+    List<Object> authenticateUser(String email, String password);
     UserDto registerUser(RegistrationRequest registrationRequest);
     UserDto authenticateWithGoogle(String email);
     UserDto updateMetrics(Long userId, double weight, double height);

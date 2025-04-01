@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/auth")
@@ -18,11 +20,13 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest request) {
-        boolean isAuthenticated = userService.authenticateUser(request.getEmail(), request.getPassword());
+        List<Object> authenticated = userService.authenticateUser(request.getEmail(), request.getPassword());
+        boolean isAuthenticated = (boolean) authenticated.get(1);
+        long userId = (long) authenticated.get(0);
         if (isAuthenticated) {
-            return ResponseEntity.ok(new AuthResponse("Success", "Login successful!"));
+            return ResponseEntity.ok(new AuthResponse("Success", "Login successful!", userId));
         } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new AuthResponse("Error", "Invalid credentials"));
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new AuthResponse("Error", "Invalid credentials", -1));
         }
     }
 
@@ -31,11 +35,11 @@ public class AuthController {
         try {
             UserDto userDto = userService.registerUser(request);
             return ResponseEntity.ok(
-                    new AuthResponse("Success", "Registration successful")
+                    new AuthResponse("Success", "Registration successful", userDto.getId())
             );
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(
-                    new AuthResponse("Error", e.getMessage())
+                    new AuthResponse("Error", e.getMessage(), -1)
             );
         }
     }
@@ -44,9 +48,9 @@ public class AuthController {
     public ResponseEntity<AuthResponse> googleAuth(@RequestBody GoogleAuthRequest request){
         try {
             UserDto userDto = userService.authenticateWithGoogle(request.getEmail());
-            return ResponseEntity.ok(new AuthResponse("Success", "Google authentication on successful"));
+            return ResponseEntity.ok(new AuthResponse("Success", "Google authentication on successful", userDto.getId()));
         } catch(Exception e){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new AuthResponse("Error", e.getMessage()));
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new AuthResponse("Error", e.getMessage(), -1));
         }
     }
 }
