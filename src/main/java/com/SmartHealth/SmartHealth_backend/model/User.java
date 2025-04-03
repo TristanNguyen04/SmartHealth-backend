@@ -3,6 +3,8 @@ package com.SmartHealth.SmartHealth_backend.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 
 @Entity
 @Getter
@@ -41,4 +43,10 @@ public class User {
 
     @Column(name = "is_google_auth", nullable = false)
     private boolean isGoogleAuth;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Event> events;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<NutrientIntake> nutrientIntakes;
 }

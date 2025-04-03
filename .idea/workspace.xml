@@ -5,13 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2085cd4f-c7df-48fc-9d44-2e34f8141fdf" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/controller/EventController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/controller/NutrientIntakeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/dto/EventDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/dto/NutrientIntakeDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/mapper/EventMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/model/Event.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/model/NutrientIntake.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/repository/EventRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/repository/NutrientIntakeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/service/EventService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/service/NutrientIntakeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/service/impl/EventServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/service/impl/NutrientIntakeServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/dto/AuthResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/dto/AuthResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/dto/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/SmartHealth-backend-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/SmartHealth-backend-0.0.1-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/SmartHealth-backend-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/SmartHealth-backend-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/SmartHealth/SmartHealth_backend/dto/UserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/SmartHealth/SmartHealth_backend/dto/UserDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/SmartHealth/SmartHealth_backend/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/SmartHealth/SmartHealth_backend/mapper/UserMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/SmartHealth/SmartHealth_backend/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/SmartHealth/SmartHealth_backend/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/SmartHealth/SmartHealth_backend/service/impl/UserServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.SmartHealth.SmartHealth_backend.SmartHealthBackendServiceApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.SmartHealth.SmartHealth_backend.SmartHealthBackendServiceApplicationTests.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.SmartHealth.SmartHealth_backend.SmartHealthBackendServiceApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.SmartHealth.SmartHealth_backend.SmartHealthBackendServiceApplicationTests.txt" afterDir="false" />
     </list>
@@ -23,6 +43,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -63,6 +84,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/SmartHealth/SmartHealth_backend/model" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="SmartHealthBackendServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
@@ -97,7 +123,8 @@
       <workItem from="1743423642491" duration="1556000" />
       <workItem from="1743496818670" duration="446000" />
       <workItem from="1743498377051" duration="1693000" />
-      <workItem from="1743531987529" duration="746000" />
+      <workItem from="1743531987529" duration="1956000" />
+      <workItem from="1743662477307" duration="7917000" />
     </task>
     <servers />
   </component>
