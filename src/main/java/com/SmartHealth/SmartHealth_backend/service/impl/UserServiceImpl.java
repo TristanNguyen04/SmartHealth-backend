@@ -6,6 +6,7 @@ import com.SmartHealth.SmartHealth_backend.exception.ResourceNotFoundException;
 import com.SmartHealth.SmartHealth_backend.mapper.UserMapper;
 import com.SmartHealth.SmartHealth_backend.model.User ;
 import com.SmartHealth.SmartHealth_backend.repository.UserRepository;
+import com.SmartHealth.SmartHealth_backend.service.S3Service;
 import com.SmartHealth.SmartHealth_backend.service.UserService;
 import jakarta.persistence.TupleElement;
 import lombok.AllArgsConstructor;
@@ -13,6 +14,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,6 +25,7 @@ import java.util.stream.Collectors;
 public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final S3Service s3Service;
 
     @Override
     public UserDto createUser(UserDto userDto) {
@@ -156,6 +159,21 @@ public class UserServiceImpl implements UserService {
         user.setAddress(address);
 
         User updatedUser = userRepository.save(user);
+        return UserMapper.mapToUserDto(updatedUser);
+    }
+
+    @Override
+    public UserDto updateProfilePicture(Long userId, MultipartFile file) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+
+        // Upload new file to S3
+        String imageUrl = s3Service.uploadFile(file);
+
+        // Update user's profile picture URL
+        user.setProfilePictureUrl(imageUrl);
+        User updatedUser = userRepository.save(user);
+
         return UserMapper.mapToUserDto(updatedUser);
     }
 }

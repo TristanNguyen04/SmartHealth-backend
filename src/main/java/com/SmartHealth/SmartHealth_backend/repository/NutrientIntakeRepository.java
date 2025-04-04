@@ -12,4 +12,5 @@ import java.util.Calendar;
 @Repository
 public interface NutrientIntakeRepository extends JpaRepository<NutrientIntake, Long> {
     List<NutrientIntake> findByUserAndIntakeDate(User user, Calendar date);
+    boolean existsByUser(User user);
 }

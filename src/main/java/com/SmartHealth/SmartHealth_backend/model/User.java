@@ -51,4 +51,7 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<NutrientIntake> nutrientIntakes;
+
+    @Column(name = "profile_picture_url")
+    private String profilePictureUrl;
 }

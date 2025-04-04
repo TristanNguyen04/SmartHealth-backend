@@ -20,10 +20,12 @@ com/SmartHealth/SmartHealth_backend/service/NutrientIntakeService.class
 com/SmartHealth/SmartHealth_backend/service/CustomUserDetailsService.class
 com/SmartHealth/SmartHealth_backend/dto/NutrientIntakeDto.class
 com/SmartHealth/SmartHealth_backend/dto/LoginRequest.class
+com/SmartHealth/SmartHealth_backend/config/S3Config.class
 com/SmartHealth/SmartHealth_backend/controller/EventController.class
 com/SmartHealth/SmartHealth_backend/controller/AuthController.class
 com/SmartHealth/SmartHealth_backend/service/UserService.class
 com/SmartHealth/SmartHealth_backend/config/SecurityConfig.class
 com/SmartHealth/SmartHealth_backend/controller/UserController.class
+com/SmartHealth/SmartHealth_backend/service/S3Service.class
 com/SmartHealth/SmartHealth_backend/repository/NutrientIntakeRepository.class
 com/SmartHealth/SmartHealth_backend/SmartHealthBackendServiceApplication.class

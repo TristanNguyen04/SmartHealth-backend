@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -71,6 +72,13 @@ public class UserController {
             @RequestParam String phoneNumber,
             @RequestParam String address) {
         UserDto updatedUser = userService.updateDetails(userId, fullName, dob, phoneNumber, address);
+        return ResponseEntity.ok(updatedUser);
+    }
+
+    @PatchMapping("/{id}/profile-picture")
+    public ResponseEntity<UserDto> uploadProfilePicture(@PathVariable Long id,
+                                                        @RequestParam("file") MultipartFile file) {
+        UserDto updatedUser = userService.updateProfilePicture(id, file);
         return ResponseEntity.ok(updatedUser);
     }
 }

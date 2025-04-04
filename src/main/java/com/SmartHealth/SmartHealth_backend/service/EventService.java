@@ -10,4 +10,6 @@ public interface EventService {
     EventDto getEventById(Long eventId);
     EventDto updateEvent(Long eventId, EventDto eventDto);
     void deleteEvent(Long eventId);
+    List<EventDto> getEventsByMonth(Long userId, int year, int month);
+    List<EventDto> getEventsByDay(Long userId, int year, int month, int day);
 }

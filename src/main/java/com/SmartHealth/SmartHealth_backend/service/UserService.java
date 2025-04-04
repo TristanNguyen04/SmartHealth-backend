@@ -2,6 +2,7 @@ package com.SmartHealth.SmartHealth_backend.service;
 
 import com.SmartHealth.SmartHealth_backend.dto.RegistrationRequest;
 import com.SmartHealth.SmartHealth_backend.dto.UserDto;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -16,4 +17,5 @@ public interface UserService {
     UserDto authenticateWithGoogle(String email);
     UserDto updateMetrics(Long userId, double weight, double height);
     UserDto updateDetails(Long userId, String fullName, String dob, String phoneNumber, String address);
+    UserDto updateProfilePicture(Long userId, MultipartFile file);
 }

@@ -11,6 +11,7 @@ import com.SmartHealth.SmartHealth_backend.service.EventService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Calendar;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -65,6 +66,34 @@ public class EventServiceImpl implements EventService {
     @Override
     public void deleteEvent(Long eventId) {
         eventRepository.deleteById(eventId);
+    }
+
+    public List<EventDto> getEventsByMonth(Long userId, int year, int month) {
+        Calendar start = Calendar.getInstance();
+        start.set(year, month - 1, 1, 0, 0, 0);
+        start.set(Calendar.MILLISECOND, 0);
+
+        Calendar end = (Calendar) start.clone();
+        end.add(Calendar.MONTH, 1);
+
+        return eventRepository.findByUserIdAndEventStartCalendarBetween(userId, start, end)
+                .stream()
+                .map(EventMapper::mapToEventDto)
+                .collect(Collectors.toList());
+    }
+
+    public List<EventDto> getEventsByDay(Long userId, int year, int month, int day) {
+        Calendar start = Calendar.getInstance();
+        start.set(year, month - 1, day, 0, 0, 0);
+        start.set(Calendar.MILLISECOND, 0);
+
+        Calendar end = (Calendar) start.clone();
+        end.add(Calendar.DAY_OF_MONTH, 1);
+
+        return eventRepository.findByUserIdAndEventStartCalendarBetween(userId, start, end)
+                .stream()
+                .map(EventMapper::mapToEventDto)
+                .collect(Collectors.toList());
     }
 }
 

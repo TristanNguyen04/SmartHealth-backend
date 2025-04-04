@@ -29,4 +29,10 @@ public class NutrientIntakeController {
         nutrientIntakeService.resetDailyNutrientIntakes();
         return ResponseEntity.ok("Daily nutrient intakes reset successfully.");
     }
+
+    @GetMapping("/{userId}/exists")
+    public ResponseEntity<Boolean> checkIfUserHasIntakes(@PathVariable Long userId) {
+        boolean exists = nutrientIntakeService.hasUserIntake(userId);
+        return ResponseEntity.ok(exists);
+    }
 }

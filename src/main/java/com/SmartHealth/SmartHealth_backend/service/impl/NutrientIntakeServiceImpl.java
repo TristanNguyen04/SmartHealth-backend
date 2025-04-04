@@ -63,4 +63,12 @@ public class NutrientIntakeServiceImpl implements NutrientIntakeService {
         }
         nutrientIntakeRepository.saveAll(allIntakes);
     }
+
+    @Override
+    public boolean hasUserIntake(Long userId){
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + userId));
+
+        return nutrientIntakeRepository.existsByUser(user);
+    }
 }

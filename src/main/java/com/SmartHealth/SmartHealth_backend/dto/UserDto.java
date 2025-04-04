@@ -27,4 +27,5 @@ public class UserDto {
     private boolean isGoogleAuth;
     private List<Event> events;
     private List<NutrientIntake> nutrientIntakes;
+    private String profilePictureUrl;
 }
