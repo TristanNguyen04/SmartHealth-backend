@@ -30,7 +30,6 @@ public class S3Service {
             PutObjectRequest request = PutObjectRequest.builder()
                     .bucket(bucketName)
                     .key(fileName)
-                    .acl("public-read")
                     .contentType(file.getContentType())
                     .build();
 

@@ -46,12 +46,13 @@ public class User {
     private boolean isGoogleAuth;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Event> events;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<NutrientIntake> nutrientIntakes;
 
-    @Column(name = "profile_picture_url")
+    @Column(name = "profile_picture_url", nullable = true)
     private String profilePictureUrl;
 }
