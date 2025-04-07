@@ -12,9 +12,9 @@ public class EventMapper {
                 event.getEventDescription(),
                 event.getEventStartCalendar(),
                 event.getEventEndCalendar(),
-                event.getUser().getId(),
                 event.getEventType(),
-                event.isTaken()
+                event.isTaken(),
+                event.getUser().getId()
         );
     }
 
@@ -25,9 +25,9 @@ public class EventMapper {
                 eventDto.getEventDescription(),
                 eventDto.getEventStartCalendar(),
                 eventDto.getEventEndCalendar(),
-                user,
                 eventDto.getEventType(),
-                eventDto.isTaken()
+                eventDto.isTaken(),
+                user
         );
     }
 }

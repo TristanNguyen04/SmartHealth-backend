@@ -34,14 +34,14 @@ public class Event {
     @Column(name = "event_end_date", nullable = false)
     private Calendar eventEndCalendar;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    @JsonBackReference
-    private User user;
-
     @Column(name = "event_type", nullable = false)
     private String eventType;
 
     @Column(name = "is_taken", nullable = false)
     private boolean isTaken;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    @JsonBackReference
+    private User user;
 }
