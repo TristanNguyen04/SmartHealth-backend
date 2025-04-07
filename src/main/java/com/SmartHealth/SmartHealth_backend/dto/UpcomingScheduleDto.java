@@ -1,8 +1,5 @@
 package com.SmartHealth.SmartHealth_backend.dto;
 
-import com.SmartHealth.SmartHealth_backend.model.User;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,11 +12,11 @@ import java.util.Calendar;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UpcomingScheduleDto {
-    private long Id;
+    private Long id;
     private String scheduleTitle;
     private String scheduleDescription;
-    private boolean isTaken;
     private Calendar scheduleCalendar;
     private String scheduleType;
+    private boolean isTaken;
     private Long userId;
 }

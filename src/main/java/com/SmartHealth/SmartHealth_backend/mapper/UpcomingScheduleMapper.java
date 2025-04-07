@@ -12,9 +12,9 @@ public class UpcomingScheduleMapper {
                 upcomingSchedule.getId(),
                 upcomingSchedule.getScheduleTitle(),
                 upcomingSchedule.getScheduleDescription(),
-                upcomingSchedule.isTaken(),
                 upcomingSchedule.getScheduleCalendar(),
                 upcomingSchedule.getScheduleType(),
+                upcomingSchedule.isTaken(),
                 upcomingSchedule.getUser().getId()
         );
     }
@@ -24,9 +24,9 @@ public class UpcomingScheduleMapper {
                 upcomingScheduleDto.getId(),
                 upcomingScheduleDto.getScheduleTitle(),
                 upcomingScheduleDto.getScheduleDescription(),
-                upcomingScheduleDto.isTaken(),
                 upcomingScheduleDto.getScheduleCalendar(),
                 upcomingScheduleDto.getScheduleType(),
+                upcomingScheduleDto.isTaken(),
                 user
         );
     }

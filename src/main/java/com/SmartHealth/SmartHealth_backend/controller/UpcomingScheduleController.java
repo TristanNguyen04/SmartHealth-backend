@@ -1,12 +1,8 @@
 package com.SmartHealth.SmartHealth_backend.controller;
 
-import com.SmartHealth.SmartHealth_backend.dto.EventDto;
 import com.SmartHealth.SmartHealth_backend.dto.UpcomingScheduleDto;
-import com.SmartHealth.SmartHealth_backend.service.EventService;
 import com.SmartHealth.SmartHealth_backend.service.UpcomingScheduleService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

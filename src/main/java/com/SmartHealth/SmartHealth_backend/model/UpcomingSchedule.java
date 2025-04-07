@@ -18,7 +18,7 @@ import java.util.Calendar;
 public class UpcomingSchedule {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long Id;
+    private Long id;
 
     @Column(name = "schedule_title", nullable = false)
     private String scheduleTitle;
@@ -26,15 +26,15 @@ public class UpcomingSchedule {
     @Column(name = "schedule_description", nullable = false)
     private String scheduleDescription;
 
-    @Column(name = "is_taken", nullable = false)
-    private boolean isTaken;
-
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name ="schedule_calendar", nullable = false)
     private Calendar scheduleCalendar;
 
     @Column(name = "schedule_type", nullable = false)
     private String scheduleType;
+
+    @Column(name = "is_taken", nullable = false)
+    private boolean isTaken;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
