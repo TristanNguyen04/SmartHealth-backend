@@ -19,7 +19,8 @@ public class UserMapper {
                 user.getEvents(),
                 user.getNutrientIntakes(),
                 user.getProfilePictureUrl(),
-                user.getMedicineInventory()
+                user.getMedicineInventory(),
+                user.getUpcomingSchedules()
         );
     }
 
@@ -38,7 +39,8 @@ public class UserMapper {
                 userDto.getEvents(),
                 userDto.getNutrientIntakes(),
                 userDto.getProfilePictureUrl(),
-                userDto.getMedicineInventory()
+                userDto.getMedicineInventory(),
+                userDto.getUpcomingSchedules()
         );
     }
 }

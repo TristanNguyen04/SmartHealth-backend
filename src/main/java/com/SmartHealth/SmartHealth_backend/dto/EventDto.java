@@ -17,7 +17,5 @@ public class EventDto {
     private String eventDescription;
     private Calendar eventStartCalendar;
     private Calendar eventEndCalendar;
-    private String eventType;
-    private boolean isTaken;
     private Long userId;
 }
