@@ -1,5 +1,6 @@
 package com.SmartHealth.SmartHealth_backend.controller;
 
+import com.SmartHealth.SmartHealth_backend.dto.MedicineDto;
 import com.SmartHealth.SmartHealth_backend.dto.UpcomingScheduleDto;
 import com.SmartHealth.SmartHealth_backend.service.UpcomingScheduleService;
 import lombok.AllArgsConstructor;
@@ -17,7 +18,9 @@ public class UpcomingScheduleController {
 
     // Build Create Schedules REST API
     @PostMapping("/{userId}")
-    public ResponseEntity<UpcomingScheduleDto> createSchedule(@PathVariable Long userId, @RequestBody UpcomingScheduleDto upcomingScheduleDto) {
+    public ResponseEntity<UpcomingScheduleDto> createSchedule(
+            @PathVariable Long userId,
+            @RequestBody UpcomingScheduleDto upcomingScheduleDto) {
         return ResponseEntity.ok(upcomingScheduleService.createSchedule(userId, upcomingScheduleDto));
     }
 
@@ -36,5 +39,11 @@ public class UpcomingScheduleController {
             @PathVariable int month,
             @PathVariable int day) {
         return ResponseEntity.ok(upcomingScheduleService.getSchedulesByDay(userId, year, month, day));
+    }
+
+    @PutMapping("/take/{scheduleId}")
+    public ResponseEntity<String> takeMedicine(@PathVariable Long scheduleId) {
+        upcomingScheduleService.takeMedicine(scheduleId);
+        return ResponseEntity.ok("Medicine intake processed successfully.");
     }
 }

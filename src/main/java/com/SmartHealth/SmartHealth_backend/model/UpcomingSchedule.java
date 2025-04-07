@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Calendar;
+import java.util.Optional;
 
 @Entity
 @Getter
@@ -36,8 +37,15 @@ public class UpcomingSchedule {
     @Column(name = "is_taken", nullable = false)
     private boolean isTaken;
 
+    @Column(name = "intake", nullable = false)
+    private int intake;
+
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     @JsonBackReference
     private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "medicine_id", nullable = true)
+    private Medicine medicine;
 }

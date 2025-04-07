@@ -19,4 +19,6 @@ public class UpcomingScheduleDto {
     private String scheduleType;
     private boolean isTaken;
     private Long userId;
+    private Long medicineId;
+    private int intake;
 }
