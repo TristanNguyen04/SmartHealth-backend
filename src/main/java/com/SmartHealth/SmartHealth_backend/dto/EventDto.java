@@ -18,4 +18,6 @@ public class EventDto {
     private Calendar eventStartCalendar;
     private Calendar eventEndCalendar;
     private Long userId;
+    private String eventType;
+    private boolean isTaken;
 }

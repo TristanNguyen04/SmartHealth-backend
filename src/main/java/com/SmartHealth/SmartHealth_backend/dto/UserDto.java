@@ -1,6 +1,7 @@
 package com.SmartHealth.SmartHealth_backend.dto;
 
 import com.SmartHealth.SmartHealth_backend.model.Event;
+import com.SmartHealth.SmartHealth_backend.model.Medicine;
 import com.SmartHealth.SmartHealth_backend.model.NutrientIntake;
 import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
@@ -28,4 +29,5 @@ public class UserDto {
     private List<Event> events;
     private List<NutrientIntake> nutrientIntakes;
     private String profilePictureUrl;
+    private List<Medicine> medicineInventory;
 }

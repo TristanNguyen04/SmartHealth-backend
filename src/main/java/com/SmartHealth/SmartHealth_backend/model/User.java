@@ -55,4 +55,8 @@ public class User {
 
     @Column(name = "profile_picture_url", nullable = true)
     private String profilePictureUrl;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<Medicine> medicineInventory;
 }

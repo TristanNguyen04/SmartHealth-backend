@@ -18,7 +18,8 @@ public class UserMapper {
                 user.isGoogleAuth(),
                 user.getEvents(),
                 user.getNutrientIntakes(),
-                user.getProfilePictureUrl()
+                user.getProfilePictureUrl(),
+                user.getMedicineInventory()
         );
     }
 
@@ -36,7 +37,8 @@ public class UserMapper {
                 userDto.isGoogleAuth(),
                 userDto.getEvents(),
                 userDto.getNutrientIntakes(),
-                userDto.getProfilePictureUrl()
+                userDto.getProfilePictureUrl(),
+                userDto.getMedicineInventory()
         );
     }
 }

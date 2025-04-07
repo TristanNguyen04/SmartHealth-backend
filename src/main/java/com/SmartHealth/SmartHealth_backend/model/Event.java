@@ -39,4 +39,9 @@ public class Event {
     @JsonBackReference
     private User user;
 
+    @Column(name = "event_type", nullable = false)
+    private String eventType;
+
+    @Column(name = "is_taken", nullable = false)
+    private boolean isTaken;
 }

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.SmartHealth.SmartHealth_backend.SmartHealthBackendServiceApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.414 s -- in com.SmartHealth.SmartHealth_backend.SmartHealthBackendServiceApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.542 s -- in com.SmartHealth.SmartHealth_backend.SmartHealthBackendServiceApplicationTests
