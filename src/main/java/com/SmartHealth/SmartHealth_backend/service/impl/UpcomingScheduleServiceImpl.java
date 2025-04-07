@@ -21,8 +21,8 @@ import java.util.stream.Collectors;
 @Service
 @AllArgsConstructor
 public class UpcomingScheduleServiceImpl implements UpcomingScheduleService {
-    private UserRepository userRepository;
-    private UpcomingScheduleRepository upcomingScheduleRepository;
+    private final UserRepository userRepository;
+    private final UpcomingScheduleRepository upcomingScheduleRepository;
 
     @Override
     public UpcomingScheduleDto createSchedule(Long userId, UpcomingScheduleDto upcomingScheduleDto) {
