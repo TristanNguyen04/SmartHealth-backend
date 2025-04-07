@@ -14,7 +14,7 @@ public class MedicineDto {
     private String medicineName;
     private String medicineCategory;
     private int medicineAmount;
-    private String medicineImageUrl;
+    private byte[] medicineImage;
     private String medicineDosage;
     private String medicineContains;
     private String medicineSideEffect;

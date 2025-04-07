@@ -8,6 +8,7 @@ import com.SmartHealth.SmartHealth_backend.model.User;
 import com.SmartHealth.SmartHealth_backend.repository.MedicineRepository;
 import com.SmartHealth.SmartHealth_backend.repository.UserRepository;
 import com.SmartHealth.SmartHealth_backend.service.MedicineService;
+import com.SmartHealth.SmartHealth_backend.service.S3Service;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,7 @@ import java.util.stream.Collectors;
 public class MedicineServiceImpl implements MedicineService {
 
     private final MedicineRepository medicineRepository;
+    private final S3Service s3Service;
     private final UserRepository userRepository;
 
     @Override
@@ -57,7 +59,7 @@ public class MedicineServiceImpl implements MedicineService {
         medicine.setMedicineName(medicineDto.getMedicineName());
         medicine.setMedicineCategory(medicineDto.getMedicineCategory());
         medicine.setMedicineAmount(medicineDto.getMedicineAmount());
-        medicine.setMedicineImageUrl(medicineDto.getMedicineImageUrl());
+        medicine.setMedicineImage(medicineDto.getMedicineImage());
         medicine.setMedicineDosage(medicineDto.getMedicineDosage());
         medicine.setMedicineContains(medicineDto.getMedicineContains());
         medicine.setMedicineSideEffect(medicineDto.getMedicineSideEffect());

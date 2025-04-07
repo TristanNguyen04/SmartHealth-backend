@@ -27,8 +27,8 @@ public class Medicine {
     @Column(name = "medicine_amount", nullable = false)
     private int medicineAmount;
 
-    @Column(name = "medicine_image_url", nullable = false)
-    private String medicineImageUrl;
+    @Column(name = "medicine_image", nullable = false)
+    private byte[] medicineImage;
 
     @Column(name = "medicine_dosage", nullable = false)
     private String medicineDosage;
