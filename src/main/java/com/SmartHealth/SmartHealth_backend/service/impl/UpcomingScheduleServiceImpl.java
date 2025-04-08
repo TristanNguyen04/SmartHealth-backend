@@ -75,11 +75,13 @@ public class UpcomingScheduleServiceImpl implements UpcomingScheduleService {
                 .orElseThrow(() -> new ResourceNotFoundException("Schedule not found with id: " + scheduleId));
 
         Medicine medicine = schedule.getMedicine();
-        int remaining = medicine.getMedicineAmount() - schedule.getIntake();
-        if (remaining < 0) throw new IllegalArgumentException("Not enough medicine stock.");
+        if(medicine != null){
+            int remaining = medicine.getMedicineAmount() - schedule.getIntake();
+            if (remaining < 0) throw new IllegalArgumentException("Not enough medicine stock.");
 
-        medicine.setMedicineAmount(remaining);
-        medicineRepository.save(medicine);
+            medicine.setMedicineAmount(remaining);
+            medicineRepository.save(medicine);
+        }
 
         schedule.setTaken(true);
         upcomingScheduleRepository.save(schedule);
