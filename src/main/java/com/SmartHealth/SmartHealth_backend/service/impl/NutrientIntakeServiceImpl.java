@@ -73,33 +73,31 @@ public class NutrientIntakeServiceImpl implements NutrientIntakeService {
     }
 
     @Override
-    public NutrientIntakeDto updateNutrientIntake(Long intakeId, NutrientIntakeDto updatedIntakeDto) {
-        NutrientIntake existingIntake = nutrientIntakeRepository.findById(intakeId)
-                .orElseThrow(() -> new ResourceNotFoundException("Nutrient Intake not found with id: " + intakeId));
+    public List<NutrientIntakeDto> updateUserNutrientIntakes(Long userId, List<NutrientIntakeDto> updatedDtos) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + userId));
 
-        if (updatedIntakeDto.getNutrientName() != null)
-            existingIntake.setNutrientName(updatedIntakeDto.getNutrientName());
+        Calendar today = Calendar.getInstance();
 
-        if (updatedIntakeDto.getCurrentNutrient() >= 0)
-            existingIntake.setCurrentNutrient(updatedIntakeDto.getCurrentNutrient());
+        List<NutrientIntake> existingIntakes = nutrientIntakeRepository.findByUserAndIntakeDate(user, today);
 
-        if (updatedIntakeDto.getTotalNutrient() >= 0)
-            existingIntake.setTotalNutrient(updatedIntakeDto.getTotalNutrient());
+        for (NutrientIntake existing : existingIntakes) {
+            for (NutrientIntakeDto updatedDto : updatedDtos) {
+                if (existing.getNutrientName().equalsIgnoreCase(updatedDto.getNutrientName())) {
+                    existing.setCurrentNutrient(updatedDto.getCurrentNutrient() + existing.getCurrentNutrient());
+                    existing.setTotalNutrient(existing.getTotalNutrient());
+                    existing.setIntakeUnit(updatedDto.getIntakeUnit());
+                    break;
+                }
+            }
+        }
 
-        if (updatedIntakeDto.getIntakeUnit() != null)
-            existingIntake.setIntakeUnit(updatedIntakeDto.getIntakeUnit());
+        List<NutrientIntake> updatedEntities = nutrientIntakeRepository.saveAll(existingIntakes);
 
-        if (updatedIntakeDto.getIntakeDate() != null)
-            existingIntake.setIntakeDate(updatedIntakeDto.getIntakeDate());
-
-        nutrientIntakeRepository.save(existingIntake);
-
-        return new NutrientIntakeDto(
-                existingIntake.getId(), existingIntake.getNutrientName(),
-                existingIntake.getCurrentNutrient(), existingIntake.getTotalNutrient(),
-                existingIntake.getIntakeUnit(), existingIntake.getIntakeDate(),
-                existingIntake.getUser().getId()
-        );
+        return updatedEntities.stream().map(intake -> new NutrientIntakeDto(
+                intake.getId(), intake.getNutrientName(), intake.getCurrentNutrient(),
+                intake.getTotalNutrient(), intake.getIntakeUnit(), intake.getIntakeDate(), userId
+        )).collect(Collectors.toList());
     }
 
 }

@@ -36,10 +36,10 @@ public class NutrientIntakeController {
         return ResponseEntity.ok(exists);
     }
 
-    @PatchMapping("/{intakeId}")
-    public ResponseEntity<NutrientIntakeDto> updateNutrientIntake(
-            @PathVariable Long intakeId,
-            @RequestBody NutrientIntakeDto updatedDto) {
-        return ResponseEntity.ok(nutrientIntakeService.updateNutrientIntake(intakeId, updatedDto));
+    @PatchMapping("/user/{userId}")
+    public ResponseEntity<List<NutrientIntakeDto>> updateUserNutrientIntakes(
+            @PathVariable Long userId,
+            @RequestBody List<NutrientIntakeDto> updatedDtos) {
+        return ResponseEntity.ok(nutrientIntakeService.updateUserNutrientIntakes(userId, updatedDtos));
     }
 }
