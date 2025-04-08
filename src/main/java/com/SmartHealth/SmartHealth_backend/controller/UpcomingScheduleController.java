@@ -42,8 +42,8 @@ public class UpcomingScheduleController {
     }
 
     @PutMapping("/take/{scheduleId}")
-    public ResponseEntity<String> takeMedicine(@PathVariable Long scheduleId) {
+    public ResponseEntity<Void> takeMedicine(@PathVariable Long scheduleId) {
         upcomingScheduleService.takeMedicine(scheduleId);
-        return ResponseEntity.ok("Medicine intake processed successfully.");
+        return ResponseEntity.ok().build();
     }
 }
