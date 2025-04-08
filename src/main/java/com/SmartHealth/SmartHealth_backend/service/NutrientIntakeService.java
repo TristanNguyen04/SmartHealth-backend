@@ -9,4 +9,5 @@ public interface NutrientIntakeService {
     List<NutrientIntakeDto> getUserDailyNutrients(Long userId);
     void resetDailyNutrientIntakes();
     boolean hasUserIntake(Long userId);
+    NutrientIntakeDto updateNutrientIntake(Long intakeId, NutrientIntakeDto updatedIntakeDto);
 }

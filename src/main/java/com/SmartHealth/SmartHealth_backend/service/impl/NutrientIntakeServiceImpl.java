@@ -71,4 +71,35 @@ public class NutrientIntakeServiceImpl implements NutrientIntakeService {
 
         return nutrientIntakeRepository.existsByUser(user);
     }
+
+    @Override
+    public NutrientIntakeDto updateNutrientIntake(Long intakeId, NutrientIntakeDto updatedIntakeDto) {
+        NutrientIntake existingIntake = nutrientIntakeRepository.findById(intakeId)
+                .orElseThrow(() -> new ResourceNotFoundException("Nutrient Intake not found with id: " + intakeId));
+
+        if (updatedIntakeDto.getNutrientName() != null)
+            existingIntake.setNutrientName(updatedIntakeDto.getNutrientName());
+
+        if (updatedIntakeDto.getCurrentNutrient() >= 0)
+            existingIntake.setCurrentNutrient(updatedIntakeDto.getCurrentNutrient());
+
+        if (updatedIntakeDto.getTotalNutrient() >= 0)
+            existingIntake.setTotalNutrient(updatedIntakeDto.getTotalNutrient());
+
+        if (updatedIntakeDto.getIntakeUnit() != null)
+            existingIntake.setIntakeUnit(updatedIntakeDto.getIntakeUnit());
+
+        if (updatedIntakeDto.getIntakeDate() != null)
+            existingIntake.setIntakeDate(updatedIntakeDto.getIntakeDate());
+
+        nutrientIntakeRepository.save(existingIntake);
+
+        return new NutrientIntakeDto(
+                existingIntake.getId(), existingIntake.getNutrientName(),
+                existingIntake.getCurrentNutrient(), existingIntake.getTotalNutrient(),
+                existingIntake.getIntakeUnit(), existingIntake.getIntakeDate(),
+                existingIntake.getUser().getId()
+        );
+    }
+
 }

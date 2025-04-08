@@ -35,4 +35,11 @@ public class NutrientIntakeController {
         boolean exists = nutrientIntakeService.hasUserIntake(userId);
         return ResponseEntity.ok(exists);
     }
+
+    @PatchMapping("/{intakeId}")
+    public ResponseEntity<NutrientIntakeDto> updateNutrientIntake(
+            @PathVariable Long intakeId,
+            @RequestBody NutrientIntakeDto updatedDto) {
+        return ResponseEntity.ok(nutrientIntakeService.updateNutrientIntake(intakeId, updatedDto));
+    }
 }
