@@ -15,12 +15,12 @@
 
 | Member                | Student Number |
 |-----------------------|----------------|
-| Nguyen Quoc Dung   	| 1008017        |
-| Ong Xuan    		| 1008044        |
-| Ng Zhao Hui 		| 1007803        |
-| Le Viet Hai        	| 1008033        |
-| Thng Aik Kiat  	| 1007781        |
-| G K Dharesan       	| 1007885        |
+| Nguyen Quoc Dung   	  | 1008017        |
+| Ong Xuan    		      | 1008044        |
+| Ng Zhao Hui 		      | 1007803        |
+| Le Viet Hai        	  | 1008033        |
+| Thng Aik Kiat  	      | 1007781        |
+| G K Dharesan       	  | 1007885        |
 
 This repository contains the backend server for the **SmartHealth** application, designed to help users track their health and wellness. It provides APIs for managing events, medicines, nutrient intake, user profiles, and much more. The backend is built using **Spring Boot** and is hosted on **Render**.
 
