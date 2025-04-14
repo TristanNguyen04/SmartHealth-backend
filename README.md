@@ -6,6 +6,7 @@
     <img src="https://img.shields.io/badge/postgresql-4169e1?style=for-the-badge&logo=postgresql&logoColor=white" alt="postgreSQL" />
     <img src="https://img.shields.io/badge/AWS%20RDS-527FFF?style=for-the-badge&logo=Amazon%20RDS&logoColor=white" alt="AWS RDS" />
     <img src="https://img.shields.io/badge/AWS_S3-569A31?logo=amazons3&logoColor=fff&style=for-the-badge" alt="AWS S3" />
+    <img src="https://img.shields.io/badge/docker-257bd6?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
   </div>
   <p align="center">Self-hosted backend server for <a href=https://github.com/ItsMeOX/SmartHealth>Smart Health</a></p>
 </div>
