@@ -1,4 +1,4 @@
-# Smart Health - Backend
+# Smart Health - Backend Server
 
 <div align="center">
   <div>
