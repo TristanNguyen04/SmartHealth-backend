@@ -11,6 +11,7 @@ import com.SmartHealth.SmartHealth_backend.service.MedicineService;
 import com.SmartHealth.SmartHealth_backend.service.S3Service;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,10 +25,15 @@ public class MedicineServiceImpl implements MedicineService {
     private final UserRepository userRepository;
 
     @Override
-    public MedicineDto createMedicine(Long userId, MedicineDto medicineDto) {
+    public MedicineDto createMedicine(Long userId, MedicineDto medicineDto, MultipartFile imageFile) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found with ID: " + userId));
 
+        String imageUrl = null;
+        if (imageFile != null && !imageFile.isEmpty()) {
+            imageUrl = s3Service.uploadFile(imageFile);
+        }
+        medicineDto.setMedicineImage(imageUrl);
         Medicine medicine = MedicineMapper.mapToMedicine(medicineDto, user);
         Medicine savedMedicine = medicineRepository.save(medicine);
         return MedicineMapper.mapToMedicineDto(savedMedicine);
@@ -52,14 +58,19 @@ public class MedicineServiceImpl implements MedicineService {
     }
 
     @Override
-    public MedicineDto updateMedicine(Long id, MedicineDto medicineDto) {
+    public MedicineDto updateMedicine(Long id, MedicineDto medicineDto, MultipartFile imageFile) {
         Medicine medicine = medicineRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Medicine not found with ID: " + id));
 
+        if (imageFile != null && !imageFile.isEmpty()) {
+            String imageUrl = s3Service.uploadFile(imageFile);
+            medicine.setMedicineImage(imageUrl);
+        } else if (medicineDto.getMedicineImage() != null) {
+            medicine.setMedicineImage(medicineDto.getMedicineImage());
+        }
         medicine.setMedicineName(medicineDto.getMedicineName());
         medicine.setMedicineCategory(medicineDto.getMedicineCategory());
         medicine.setMedicineAmount(medicineDto.getMedicineAmount());
-        medicine.setMedicineImage(medicineDto.getMedicineImage());
         medicine.setMedicineDosage(medicineDto.getMedicineDosage());
         medicine.setMedicineContains(medicineDto.getMedicineContains());
         medicine.setMedicineSideEffect(medicineDto.getMedicineSideEffect());

@@ -5,6 +5,8 @@ import com.SmartHealth.SmartHealth_backend.service.MedicineService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.http.MediaType;
 
 import java.util.List;
 
@@ -16,9 +18,11 @@ public class MedicineController {
     private final MedicineService medicineService;
 
     // Build Create Medicine REST API
-    @PostMapping("/{userId}")
-    public ResponseEntity<MedicineDto> createMedicine(@PathVariable Long userId, @RequestBody MedicineDto medicineDto) {
-        return ResponseEntity.ok(medicineService.createMedicine(userId, medicineDto));
+    @PostMapping(value = "/{userId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<MedicineDto> createMedicine(@PathVariable Long userId,
+                                                     @RequestPart("medicineDto") MedicineDto medicineDto,
+                                                     @RequestPart(value = "imageFile", required = false) MultipartFile imageFile) {
+        return ResponseEntity.ok(medicineService.createMedicine(userId, medicineDto, imageFile));
     }
 
     // Build Get User's Medicines REST API
@@ -34,9 +38,11 @@ public class MedicineController {
     }
 
     // Build Update Medicine REST API
-    @PutMapping("/{id}")
-    public ResponseEntity<MedicineDto> updateMedicine(@PathVariable Long id, @RequestBody MedicineDto medicineDto) {
-        return ResponseEntity.ok(medicineService.updateMedicine(id, medicineDto));
+    @PutMapping(value = "/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<MedicineDto> updateMedicine(@PathVariable Long id,
+                                                     @RequestPart("medicineDto") MedicineDto medicineDto,
+                                                     @RequestPart(value = "imageFile", required = false) MultipartFile imageFile) {
+        return ResponseEntity.ok(medicineService.updateMedicine(id, medicineDto, imageFile));
     }
 
     // Build Delete Medicine REST API
