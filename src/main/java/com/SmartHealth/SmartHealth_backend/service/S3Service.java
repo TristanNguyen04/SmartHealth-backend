@@ -33,7 +33,9 @@ public class S3Service {
                     .contentType(file.getContentType())
                     .build();
 
-            s3Client.putObject(request, software.amazon.awssdk.core.sync.RequestBody.fromBytes(file.getBytes()));
+            s3Client.putObject(request,
+                    RequestBody.fromInputStream(file.getInputStream(), file.getSize())
+            );
 
             return getFileUrl(fileName);
         } catch (IOException e) {
